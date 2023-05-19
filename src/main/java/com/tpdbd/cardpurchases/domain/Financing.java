@@ -1,8 +1,9 @@
-package com.tpdbd.cardpurchases.model;
+package com.tpdbd.cardpurchases.domain;
 
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "financing")
@@ -19,6 +20,12 @@ public class Financing extends Promotion{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bank_id")
     private Bank bankId;
+
+    @ManyToMany
+    private Set<MonthlyPayments> monthlyPaymentsId;
+
+    @ManyToMany
+    private Set<CashPayment> cashPaymentsId;
 
     public Financing(){
         super();
@@ -60,5 +67,21 @@ public class Financing extends Promotion{
 
     public void setInteres(float interes) {
         this.interes = interes;
+    }
+
+    public Set<MonthlyPayments> getMonthlyPaymentsId() {
+        return monthlyPaymentsId;
+    }
+
+    public void setMonthlyPaymentsId(Set<MonthlyPayments> monthlyPaymentsId) {
+        this.monthlyPaymentsId = monthlyPaymentsId;
+    }
+
+    public Set<CashPayment> getCashPaymentsId() {
+        return cashPaymentsId;
+    }
+
+    public void setCashPaymentsId(Set<CashPayment> cashPaymentsId) {
+        this.cashPaymentsId = cashPaymentsId;
     }
 }

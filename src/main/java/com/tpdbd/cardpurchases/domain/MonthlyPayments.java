@@ -1,6 +1,9 @@
-package com.tpdbd.cardpurchases.model;
+package com.tpdbd.cardpurchases.domain;
 
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "monthly_payments")
@@ -11,6 +14,19 @@ public class MonthlyPayments extends Purchase {
     private float interest;
 
     private int numberOfQuotas;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "card_id")
+    private Card cardId;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Quota> quotasId = new HashSet<Quota>();
+
+    @ManyToMany
+    private Set<Discount> discountsId;
+
+    @ManyToMany
+    private Set<Financing> financingsId;
+
     public MonthlyPayments(){
         super();
     }
@@ -42,5 +58,37 @@ public class MonthlyPayments extends Purchase {
 
     public void setNumberOfQuotas(int numberOfQuotas) {
         this.numberOfQuotas = numberOfQuotas;
+    }
+
+    public Card getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Card cardId) {
+        this.cardId = cardId;
+    }
+
+    public Set<Quota> getQuotasId() {
+        return quotasId;
+    }
+
+    public void setQuotasId(Set<Quota> quotasId) {
+        this.quotasId = quotasId;
+    }
+
+    public Set<Discount> getDiscountsId() {
+        return discountsId;
+    }
+
+    public void setDiscountsId(Set<Discount> discountsId) {
+        this.discountsId = discountsId;
+    }
+
+    public Set<Financing> getFinancingsId() {
+        return financingsId;
+    }
+
+    public void setFinancingsId(Set<Financing> financingsId) {
+        this.financingsId = financingsId;
     }
 }

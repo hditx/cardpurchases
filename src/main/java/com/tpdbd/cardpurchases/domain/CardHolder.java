@@ -1,4 +1,4 @@
-package com.tpdbd.cardpurchases.model;
+package com.tpdbd.cardpurchases.domain;
 
 import jakarta.persistence.*;
 
@@ -111,4 +111,6 @@ public class CardHolder {
     public void setEntry(Date entry) {
         this.entry = entry;
     }
+
+
 }

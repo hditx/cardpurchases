@@ -1,8 +1,10 @@
-package com.tpdbd.cardpurchases.model;
+package com.tpdbd.cardpurchases.domain;
 
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "card")
@@ -25,6 +27,13 @@ public class Card {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bank_id")
     private Bank bankId;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<MonthlyPayments> monthlyPaymentsId = new HashSet<MonthlyPayments>();
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<CashPayment> cashPaymentsId = new HashSet<CashPayment>();
+
 
     public Card(){}
     public Card(String number, String ccv, String cardholderNameInCard, Date since, Date expirationDate) {
@@ -98,4 +107,22 @@ public class Card {
     public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
+
+    public Set<MonthlyPayments> getMonthlyPaymentsId() {
+        return monthlyPaymentsId;
+    }
+
+    public void setMonthlyPaymentsId(Set<MonthlyPayments> monthlyPaymentsId) {
+        this.monthlyPaymentsId = monthlyPaymentsId;
+    }
+
+    public Set<CashPayment> getCashPaymentsId() {
+        return cashPaymentsId;
+    }
+
+    public void setCashPaymentsId(Set<CashPayment> cashPaymentsId) {
+        this.cashPaymentsId = cashPaymentsId;
+    }
+
+
 }

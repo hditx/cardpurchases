@@ -1,4 +1,4 @@
-package com.tpdbd.cardpurchases.model;
+package com.tpdbd.cardpurchases.domain;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
@@ -63,5 +63,13 @@ public abstract class Purchase {
 
     public void setFinalAmount(float finalAmount) {
         this.finalAmount = finalAmount;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

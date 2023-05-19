@@ -1,4 +1,4 @@
-package com.tpdbd.cardpurchases.services;
+package com.tpdbd.cardpurchases.application;
 
 import org.springframework.stereotype.Service;
 

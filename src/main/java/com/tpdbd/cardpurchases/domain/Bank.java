@@ -1,4 +1,4 @@
-package com.tpdbd.cardpurchases.model;
+package com.tpdbd.cardpurchases.domain;
 
 import jakarta.persistence.*;
 
@@ -106,4 +106,6 @@ public class Bank {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+
+
 }

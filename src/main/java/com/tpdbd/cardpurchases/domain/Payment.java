@@ -1,8 +1,10 @@
-package com.tpdbd.cardpurchases.model;
+package com.tpdbd.cardpurchases.domain;
 
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "payment")
@@ -23,6 +25,11 @@ public class Payment {
     private float surchase;
 
     private float totalPrice;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<CashPayment> cashPaymentsId = new HashSet<CashPayment>();
+    @OneToMany(fetch = FetchType.LAZY)
+    private Set<Quota> quotasId = new HashSet<Quota>();
 
     public Payment() {}
     public Payment(String code, String month, String year, Date firstExpiration, Date secondExpiration, float surchase, float totalPrice) {
@@ -89,5 +96,29 @@ public class Payment {
 
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Set<CashPayment> getCashPaymentsId() {
+        return cashPaymentsId;
+    }
+
+    public void setCashPaymentsId(Set<CashPayment> cashPaymentsId) {
+        this.cashPaymentsId = cashPaymentsId;
+    }
+
+    public Set<Quota> getQuotasId() {
+        return quotasId;
+    }
+
+    public void setQuotasId(Set<Quota> quotasId) {
+        this.quotasId = quotasId;
     }
 }
