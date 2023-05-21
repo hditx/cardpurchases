@@ -1,6 +1,7 @@
 package com.tpdbd.cardpurchases.domain;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -8,6 +9,11 @@ import java.util.Set;
 
 @Entity
 @Table(name = "payment")
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+@Builder
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,94 +37,4 @@ public class Payment {
     @OneToMany(fetch = FetchType.LAZY)
     private Set<Quota> quotasId = new HashSet<Quota>();
 
-    public Payment() {}
-    public Payment(String code, String month, String year, Date firstExpiration, Date secondExpiration, float surchase, float totalPrice) {
-        this.code = code;
-        this.month = month;
-        this.year = year;
-        this.firstExpiration = firstExpiration;
-        this.secondExpiration = secondExpiration;
-        this.surchase = surchase;
-        this.totalPrice = totalPrice;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public void setMonth(String month) {
-        this.month = month;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public Date getFirstExpiration() {
-        return firstExpiration;
-    }
-
-    public void setFirstExpiration(Date firstExpiration) {
-        this.firstExpiration = firstExpiration;
-    }
-
-    public Date getSecondExpiration() {
-        return secondExpiration;
-    }
-
-    public void setSecondExpiration(Date secondExpiration) {
-        this.secondExpiration = secondExpiration;
-    }
-
-    public float getSurchase() {
-        return surchase;
-    }
-
-    public void setSurchase(float surchase) {
-        this.surchase = surchase;
-    }
-
-    public float getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(float totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Set<CashPayment> getCashPaymentsId() {
-        return cashPaymentsId;
-    }
-
-    public void setCashPaymentsId(Set<CashPayment> cashPaymentsId) {
-        this.cashPaymentsId = cashPaymentsId;
-    }
-
-    public Set<Quota> getQuotasId() {
-        return quotasId;
-    }
-
-    public void setQuotasId(Set<Quota> quotasId) {
-        this.quotasId = quotasId;
-    }
 }
