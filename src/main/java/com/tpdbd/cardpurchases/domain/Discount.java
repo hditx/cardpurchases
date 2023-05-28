@@ -12,7 +12,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Setter
 @Getter
-@Builder
 public class Discount extends Promotion{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,4 +33,11 @@ public class Discount extends Promotion{
     @ManyToMany
     private Set<CashPayment> cashPaymentsId;
 
+    @Builder
+    public Discount(String code, String promotionTitle, String nameStore, String cuitStore, Date validityStartDate, Date validityEndDate, String comments, float discountPercentage, float priceCap, boolean onlyCash) {
+        super(code, promotionTitle, nameStore, cuitStore, validityStartDate, validityEndDate, comments);
+        this.discountPercentage = discountPercentage;
+        this.priceCap = priceCap;
+        this.onlyCash = onlyCash;
+    }
 }

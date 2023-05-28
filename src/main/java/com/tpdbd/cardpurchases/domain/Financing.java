@@ -12,7 +12,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Setter
 @Getter
-@Builder
 public class Financing extends Promotion{
 
     @Id
@@ -33,4 +32,10 @@ public class Financing extends Promotion{
     @ManyToMany
     private Set<CashPayment> cashPaymentsId;
 
+    @Builder
+    public Financing(String code, String promotionTitle, String nameStore, String cuitStore, Date validityStartDate, Date validityEndDate, String comments, Long id, int numberOfQuotas, float interes) {
+        super(code, promotionTitle, nameStore, cuitStore, validityStartDate, validityEndDate, comments);
+        this.numberOfQuotas = numberOfQuotas;
+        this.interes = interes;
+    }
 }

@@ -28,4 +28,13 @@ public abstract class Promotion {
 
     private String comments;
 
+    public Promotion(String code, String promotionTitle, String nameStore, String cuitStore, Date validityStartDate, Date validityEndDate, String comments) {
+        this.code = code;
+        this.promotionTitle = promotionTitle;
+        this.nameStore = nameStore;
+        this.cuitStore = cuitStore;
+        this.validityStartDate = validityStartDate;
+        this.validityEndDate = validityEndDate;
+        this.comments = comments;
+    }
 }
