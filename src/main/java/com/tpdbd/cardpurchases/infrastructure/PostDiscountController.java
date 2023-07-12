@@ -4,6 +4,7 @@ import com.tpdbd.cardpurchases.application.discount.CreateDiscount;
 import com.tpdbd.cardpurchases.application.discount.CreateDiscountCommand;
 import com.tpdbd.cardpurchases.domain.repository.BankRepository;
 import com.tpdbd.cardpurchases.domain.repository.DiscountRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,6 @@ public class PostDiscountController {
     @PostMapping
     public ResponseEntity<?> invoke(@RequestBody CreateDiscountCommand command) throws ParseException {
         createDiscount.invoke(command);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

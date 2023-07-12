@@ -3,6 +3,7 @@ package com.tpdbd.cardpurchases.infrastructure;
 import com.tpdbd.cardpurchases.application.card.CreateCard;
 import com.tpdbd.cardpurchases.application.card.CreateCardCommand;
 import com.tpdbd.cardpurchases.domain.repository.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,6 @@ public class PostCardController {
     @PostMapping
     public ResponseEntity<?> invoke(@RequestBody CreateCardCommand command) throws ParseException {
         createCard.invoke(command);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

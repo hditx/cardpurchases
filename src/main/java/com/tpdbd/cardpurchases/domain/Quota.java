@@ -15,11 +15,8 @@ public class Quota {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private  int number;
-
     private float price;
-
     private String month;
-
     private String year;
 
     @ManyToOne(fetch = FetchType.LAZY)

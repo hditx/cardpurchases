@@ -5,6 +5,7 @@ import com.tpdbd.cardpurchases.application.cardholder.CreateCardHolderCommand;
 import com.tpdbd.cardpurchases.domain.repository.BankRepository;
 import com.tpdbd.cardpurchases.domain.repository.CardHolderRepository;
 import com.tpdbd.cardpurchases.domain.repository.CardRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +26,6 @@ public class PostCardHolderController {
     @PostMapping
     public ResponseEntity<?> invoke(@RequestBody CreateCardHolderCommand command) throws ParseException {
         createCardHolder.invoke(command);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

@@ -4,6 +4,7 @@ import com.tpdbd.cardpurchases.application.financing.CreateFinancing;
 import com.tpdbd.cardpurchases.application.financing.CreateFinancingCommand;
 import com.tpdbd.cardpurchases.domain.repository.BankRepository;
 import com.tpdbd.cardpurchases.domain.repository.FinancingRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,6 @@ public class PostFinancingController {
     @PostMapping
     public ResponseEntity<?> invoke(@RequestBody CreateFinancingCommand command) throws ParseException {
         createFinancing.invoke(command);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

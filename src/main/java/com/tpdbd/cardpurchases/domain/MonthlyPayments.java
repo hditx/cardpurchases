@@ -12,7 +12,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Setter
 @Getter
-@Builder
 public class MonthlyPayments extends Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,4 +32,14 @@ public class MonthlyPayments extends Purchase {
     @ManyToMany
     private Set<Financing> financingsId;
 
+    @Builder
+    public MonthlyPayments(String paymentVoucher, String store, String cuitStore, float amount, float finalAmount, float interest, int numberOfQuotas, Card cardId, Set<Quota> quotasId, Set<Discount> discountsId, Set<Financing> financingsId) {
+        super(paymentVoucher, store, cuitStore, amount, finalAmount);
+        this.interest = interest;
+        this.numberOfQuotas = numberOfQuotas;
+        this.cardId = cardId;
+        this.quotasId = quotasId;
+        this.discountsId = discountsId;
+        this.financingsId = financingsId;
+    }
 }
