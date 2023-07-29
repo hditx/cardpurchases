@@ -30,7 +30,7 @@ public class CreatePayment {
     }
 
     private Payment parseCommandToPayment(CreatePaymentCommand command) throws ParseException {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         return Payment
                 .builder()
                 .month(command.getMonth())

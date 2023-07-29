@@ -1,9 +1,7 @@
 package com.tpdbd.cardpurchases.domain.repository;
 
 import com.tpdbd.cardpurchases.domain.Discount;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-@Repository
-public interface DiscountRepository extends JpaRepository<Discount, Long> {
+public interface DiscountRepository extends MongoRepository<Discount, String> {
 }

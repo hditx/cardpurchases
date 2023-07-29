@@ -4,7 +4,6 @@ import com.tpdbd.cardpurchases.application.cardholder.CreateCardHolder;
 import com.tpdbd.cardpurchases.application.cardholder.CreateCardHolderCommand;
 import com.tpdbd.cardpurchases.domain.repository.BankRepository;
 import com.tpdbd.cardpurchases.domain.repository.CardHolderRepository;
-import com.tpdbd.cardpurchases.domain.repository.CardRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +17,9 @@ import java.text.ParseException;
 @RequestMapping("/api/v1/card-holder")
 public class PostCardHolderController {
     private final CreateCardHolder createCardHolder;
-    public PostCardHolderController(BankRepository bankRepository, CardRepository cardRepository,
+    public PostCardHolderController(BankRepository bankRepository,
                               CardHolderRepository cardHolderRepository) {
-        this.createCardHolder = new CreateCardHolder(cardHolderRepository, cardRepository, bankRepository);
+        this.createCardHolder = new CreateCardHolder(cardHolderRepository, bankRepository);
     }
 
     @PostMapping

@@ -15,11 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostBankController {
     private final CreateBank createBank;
 
-    public PostBankController(BankRepository bankRepository, CardHolderRepository cardHolderRepository,
-                              CardRepository cardRepository, FinancingRepository financingRepository,
-                              DiscountRepository discountRepository) {
-        this.createBank = new CreateBank(bankRepository, cardHolderRepository,
-                cardRepository, discountRepository, financingRepository);
+    public PostBankController(BankRepository bankRepository) {
+        this.createBank = new CreateBank(bankRepository);
     }
 
     @PostMapping

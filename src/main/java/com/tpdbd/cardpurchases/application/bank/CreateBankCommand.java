@@ -15,9 +15,5 @@ public class CreateBankCommand {
     private String name;
     private String cuit;
     private String telephone;
-    private List<Long> cardHoldersId;
     private String address;
-    private List<Long> cardsIs;
-    private List<Long> discountsId;
-    private List<Long> financingsId;
 }

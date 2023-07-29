@@ -18,6 +18,5 @@ public class CreateCardHolderCommand {
     private String telephone;
     private String address;
     private String entry;
-    private Long bankId;
-    private List<Long> cardsId;
+    private String bankId;
 }

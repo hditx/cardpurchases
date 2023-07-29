@@ -2,7 +2,11 @@ package com.tpdbd.cardpurchases.infrastructure;
 
 import com.tpdbd.cardpurchases.application.purchase.CreateCashPurchase;
 import com.tpdbd.cardpurchases.application.purchase.CreatePurchaseCommand;
-import com.tpdbd.cardpurchases.domain.repository.*;
+
+import com.tpdbd.cardpurchases.domain.repository.CardRepository;
+import com.tpdbd.cardpurchases.domain.repository.CashPaymentRepository;
+import com.tpdbd.cardpurchases.domain.repository.DiscountRepository;
+import com.tpdbd.cardpurchases.domain.repository.PaymentRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

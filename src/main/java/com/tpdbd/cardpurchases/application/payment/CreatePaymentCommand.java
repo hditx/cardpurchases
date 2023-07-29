@@ -20,7 +20,7 @@ public class CreatePaymentCommand {
     private String secondExpiration;
     private float surchase;
     private float totalPrice;
-    private List<Long> cashPaymentsId;
-    private Long monthlyId;
+    private List<String> cashPaymentsId;
+    private String monthlyId;
     private Long numberQuota;
 }

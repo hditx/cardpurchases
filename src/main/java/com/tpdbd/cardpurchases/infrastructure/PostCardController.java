@@ -18,10 +18,9 @@ public class PostCardController {
     private final CreateCard createCard;
 
     public PostCardController(CardRepository cardRepository, BankRepository bankRepository,
-                              CardHolderRepository cardHolderRepository, MonthlyPaymentsRepository monthlyPaymentsRepository,
-                              CashPaymentRepository cashPaymentRepository) {
+                              CardHolderRepository cardHolderRepository) {
         this.createCard = new CreateCard(cardRepository, bankRepository,
-                cardHolderRepository, monthlyPaymentsRepository, cashPaymentRepository);
+                cardHolderRepository);
     }
 
     @PostMapping

@@ -3,7 +3,10 @@ package com.tpdbd.cardpurchases.application.purchase;
 import com.tpdbd.cardpurchases.domain.CashPayment;
 import com.tpdbd.cardpurchases.domain.Discount;
 import com.tpdbd.cardpurchases.domain.Payment;
-import com.tpdbd.cardpurchases.domain.repository.*;
+import com.tpdbd.cardpurchases.domain.repository.CardRepository;
+import com.tpdbd.cardpurchases.domain.repository.CashPaymentRepository;
+import com.tpdbd.cardpurchases.domain.repository.DiscountRepository;
+import com.tpdbd.cardpurchases.domain.repository.PaymentRepository;
 
 import java.util.HashSet;
 import java.util.List;
@@ -50,7 +53,7 @@ public class CreateCashPurchase {
                 .build();
     }
 
-    private Set<Discount> findDiscounts(List<Long> discountsId) {
+    private Set<Discount> findDiscounts(List<String> discountsId) {
         Set<Discount> discounts = new HashSet<>();
         discountsId.forEach(id -> {
             var discount = discountRepository.findById(id).get();

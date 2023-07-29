@@ -11,6 +11,6 @@ public class MostPaymentBank {
     }
 
     public Bank invoke() {
-        return bankRepository.findById(1L).get();
+        return bankRepository.findById("1L").get();
     }
 }

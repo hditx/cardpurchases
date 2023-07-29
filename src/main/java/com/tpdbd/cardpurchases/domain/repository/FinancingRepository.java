@@ -1,9 +1,7 @@
 package com.tpdbd.cardpurchases.domain.repository;
 
 import com.tpdbd.cardpurchases.domain.Financing;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-@Repository
-public interface FinancingRepository extends JpaRepository<Financing, Long> {
+public interface FinancingRepository extends MongoRepository<Financing, String> {
 }

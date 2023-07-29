@@ -3,6 +3,7 @@ package com.tpdbd.cardpurchases.application.purchase;
 import com.tpdbd.cardpurchases.domain.Discount;
 import com.tpdbd.cardpurchases.domain.Financing;
 import com.tpdbd.cardpurchases.domain.MonthlyPayments;
+import com.tpdbd.cardpurchases.domain.Quota;
 import com.tpdbd.cardpurchases.domain.repository.CardRepository;
 import com.tpdbd.cardpurchases.domain.repository.DiscountRepository;
 import com.tpdbd.cardpurchases.domain.repository.FinancingRepository;
@@ -50,7 +51,7 @@ public class CreateMonthlyPurchase {
                 .paymentVoucher(command.getPaymentVoucher())
                 .build();
     }
-    private Set<Discount> findDiscounts(List<Long> discountsId) {
+    private Set<Discount> findDiscounts(List<String> discountsId) {
         Set<Discount> discounts = new HashSet<>();
         discountsId.forEach(id -> {
             var discount = discountRepository.findById(id).get();
@@ -59,7 +60,7 @@ public class CreateMonthlyPurchase {
         return  discounts;
     }
 
-    private Set<Financing> findFinancing(List<Long> financingsId) {
+    private Set<Financing> findFinancing(List<String> financingsId) {
         Set<Financing> financings = new HashSet<>();
         financingsId.forEach(id -> {
             var financing = financingRepository.findById(id).get();
