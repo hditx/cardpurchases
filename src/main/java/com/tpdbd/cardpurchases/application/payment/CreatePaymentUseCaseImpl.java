@@ -5,23 +5,25 @@ import com.tpdbd.cardpurchases.domain.Quota;
 import com.tpdbd.cardpurchases.domain.repository.MonthlyPaymentsRepository;
 import com.tpdbd.cardpurchases.domain.repository.PaymentRepository;
 import com.tpdbd.cardpurchases.domain.repository.QuotaRepository;
+import com.tpdbd.cardpurchases.domain.usecase.CreatePaymentUseCase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 
-public class CreatePayment {
+public class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
     private final PaymentRepository paymentRepository;
     private final MonthlyPaymentsRepository monthlyPaymentsRepository;
     private final QuotaRepository quotaRepository;
 
-    public CreatePayment(PaymentRepository paymentRepository, MonthlyPaymentsRepository monthlyPaymentsRepository,
-                         QuotaRepository quotaRepository){
+    public CreatePaymentUseCaseImpl(PaymentRepository paymentRepository, MonthlyPaymentsRepository monthlyPaymentsRepository,
+                                    QuotaRepository quotaRepository){
         this.paymentRepository = paymentRepository;
         this.monthlyPaymentsRepository = monthlyPaymentsRepository;
         this.quotaRepository = quotaRepository;
     }
 
+    @Override
     public void invoke(CreatePaymentCommand command) throws ParseException {
         Payment payment = parseCommandToPayment(command);
         payment = paymentRepository.save(payment);

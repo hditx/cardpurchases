@@ -3,20 +3,22 @@ package com.tpdbd.cardpurchases.application.discount;
 import com.tpdbd.cardpurchases.domain.Discount;
 import com.tpdbd.cardpurchases.domain.repository.BankRepository;
 import com.tpdbd.cardpurchases.domain.repository.DiscountRepository;
+import com.tpdbd.cardpurchases.domain.usecase.CreateDiscountUseCase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class CreateDiscount {
+public class CreateDiscountUseCaseImpl implements CreateDiscountUseCase {
 
     private final DiscountRepository discountRepository;
     private final BankRepository bankRepository;
 
-    public CreateDiscount(DiscountRepository discountRepository, BankRepository bankRepository) {
+    public CreateDiscountUseCaseImpl(DiscountRepository discountRepository, BankRepository bankRepository) {
         this.discountRepository = discountRepository;
         this.bankRepository = bankRepository;
     }
 
+    @Override
     public void invoke(CreateDiscountCommand command) throws ParseException {
         var discount = parseToDiscount(command);
         discount.setBankId(bankRepository.findById(command.getBankId()).get());

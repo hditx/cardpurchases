@@ -2,12 +2,13 @@ package com.tpdbd.cardpurchases.application.bank;
 
 import com.tpdbd.cardpurchases.domain.*;
 import com.tpdbd.cardpurchases.domain.repository.*;
+import com.tpdbd.cardpurchases.domain.usecase.CreateBankUseCase;
 
 
-public class CreateBank {
+public class CreateBankUseCaseImpl implements CreateBankUseCase {
     private final BankRepository bankRepository;
 
-    public CreateBank(BankRepository bankRepository) {
+    public CreateBankUseCaseImpl(BankRepository bankRepository) {
         this.bankRepository = bankRepository;
     }
 

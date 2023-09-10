@@ -1,10 +1,11 @@
 package com.tpdbd.cardpurchases.infrastructure;
 
-import com.tpdbd.cardpurchases.application.payment.CreatePayment;
+import com.tpdbd.cardpurchases.application.payment.CreatePaymentUseCaseImpl;
 import com.tpdbd.cardpurchases.application.payment.CreatePaymentCommand;
 import com.tpdbd.cardpurchases.domain.repository.MonthlyPaymentsRepository;
 import com.tpdbd.cardpurchases.domain.repository.PaymentRepository;
 import com.tpdbd.cardpurchases.domain.repository.QuotaRepository;
+import com.tpdbd.cardpurchases.domain.usecase.CreatePaymentUseCase;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,16 +18,16 @@ import java.text.ParseException;
 @RestController
 @RequestMapping("/api/v1/payment")
 public class PostPaymentController {
-    private final CreatePayment createPayment;
+    private final CreatePaymentUseCase createPaymentUseCaseImpl;
 
     public  PostPaymentController(PaymentRepository paymentRepository, MonthlyPaymentsRepository monthlyPaymentsRepository,
                                   QuotaRepository quotaRepository) {
-        this.createPayment = new CreatePayment(paymentRepository, monthlyPaymentsRepository, quotaRepository);
+        this.createPaymentUseCaseImpl = new CreatePaymentUseCaseImpl(paymentRepository, monthlyPaymentsRepository, quotaRepository);
     }
 
     @PostMapping
     public ResponseEntity<?> invoke(@RequestBody CreatePaymentCommand command) throws ParseException {
-        createPayment.invoke(command);
+        createPaymentUseCaseImpl.invoke(command);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

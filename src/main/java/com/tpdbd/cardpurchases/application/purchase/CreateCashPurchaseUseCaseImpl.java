@@ -7,27 +7,29 @@ import com.tpdbd.cardpurchases.domain.repository.CardRepository;
 import com.tpdbd.cardpurchases.domain.repository.CashPaymentRepository;
 import com.tpdbd.cardpurchases.domain.repository.DiscountRepository;
 import com.tpdbd.cardpurchases.domain.repository.PaymentRepository;
+import com.tpdbd.cardpurchases.domain.usecase.CreateCashPurchaseUseCase;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class CreateCashPurchase {
+public class CreateCashPurchaseUseCaseImpl implements CreateCashPurchaseUseCase {
     private final CashPaymentRepository cashPaymentRepository;
     private final CardRepository cardRepository;
     private final DiscountRepository discountRepository;
 
     private final PaymentRepository paymentRepository;
 
-    public CreateCashPurchase(CashPaymentRepository cashPaymentRepository, CardRepository cardRepository,
-                              DiscountRepository discountRepository, PaymentRepository paymentRepository) {
+    public CreateCashPurchaseUseCaseImpl(CashPaymentRepository cashPaymentRepository, CardRepository cardRepository,
+                                         DiscountRepository discountRepository, PaymentRepository paymentRepository) {
         this.cashPaymentRepository = cashPaymentRepository;
         this.cardRepository = cardRepository;
         this.discountRepository = discountRepository;
         this.paymentRepository = paymentRepository;
     }
 
+    @Override
     public void invoke(CreatePurchaseCommand command) {
         Payment payment = parseToPayment(command);
         payment = paymentRepository.save(payment);

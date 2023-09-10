@@ -1,15 +1,16 @@
 package com.tpdbd.cardpurchases.application.purchase;
 
 import com.tpdbd.cardpurchases.domain.repository.PaymentRepository;
+import com.tpdbd.cardpurchases.domain.usecase.UpdatePurchaseDateUseCase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UpdatePurchaseDate {
+public class UpdatePurchaseDateUseCaseImpl implements UpdatePurchaseDateUseCase {
     private final PaymentRepository paymentRepository;
 
-    public UpdatePurchaseDate(PaymentRepository paymentRepository) {
+    public UpdatePurchaseDateUseCaseImpl(PaymentRepository paymentRepository) {
         this.paymentRepository = paymentRepository;
     }
 

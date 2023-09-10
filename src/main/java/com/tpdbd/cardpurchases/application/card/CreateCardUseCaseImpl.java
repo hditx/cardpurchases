@@ -1,23 +1,25 @@
 package com.tpdbd.cardpurchases.application.card;
 
 import com.tpdbd.cardpurchases.domain.*;
-import com.tpdbd.cardpurchases.domain.repository.*;
+import com.tpdbd.cardpurchases.domain.repository.*;p
+import com.tpdbd.cardpurchases.domain.usecase.CreateCardUseCase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class CreateCard {
+public class CreateCardUseCaseImpl implements CreateCardUseCase {
     private final CardRepository cardRepository;
     private final BankRepository bankRepository;
     private final CardHolderRepository cardHolderRepository;
 
-    public CreateCard(CardRepository cardRepository, BankRepository bankRepository,
-                      CardHolderRepository cardHolderRepository) {
+    public CreateCardUseCaseImpl(CardRepository cardRepository, BankRepository bankRepository,
+                                 CardHolderRepository cardHolderRepository) {
         this.cardRepository = cardRepository;
         this.bankRepository = bankRepository;
         this.cardHolderRepository = cardHolderRepository;
     }
 
+    @Override
     public void invoke(CreateCardCommand command) throws ParseException {
         var card = parseToCard(command);
         card.setBankId(findBank(command.getBankId()));
@@ -43,5 +45,4 @@ public class CreateCard {
     private CardHolder findCardHolder(String cardHolderId) {
         return cardHolderRepository.findById(cardHolderId).get();
     }
-
 }

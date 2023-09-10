@@ -1,8 +1,9 @@
 package com.tpdbd.cardpurchases.infrastructure;
 
 import com.tpdbd.cardpurchases.application.bank.CreateBankCommand;
-import com.tpdbd.cardpurchases.application.bank.CreateBank;
+import com.tpdbd.cardpurchases.application.bank.CreateBankUseCaseImpl;
 import com.tpdbd.cardpurchases.domain.repository.*;
+import com.tpdbd.cardpurchases.domain.usecase.CreateBankUseCase;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,15 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/bank")
 public class PostBankController {
-    private final CreateBank createBank;
+    private final CreateBankUseCase createBankUseCaseImpl;
 
     public PostBankController(BankRepository bankRepository) {
-        this.createBank = new CreateBank(bankRepository);
+        this.createBankUseCaseImpl = new CreateBankUseCaseImpl(bankRepository);
     }
 
     @PostMapping
     private ResponseEntity<?> invoke(@RequestBody CreateBankCommand bankCommand) {
-        createBank.invoke(bankCommand);
+        createBankUseCaseImpl.invoke(bankCommand);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

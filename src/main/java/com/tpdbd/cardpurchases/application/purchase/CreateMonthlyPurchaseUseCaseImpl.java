@@ -3,31 +3,32 @@ package com.tpdbd.cardpurchases.application.purchase;
 import com.tpdbd.cardpurchases.domain.Discount;
 import com.tpdbd.cardpurchases.domain.Financing;
 import com.tpdbd.cardpurchases.domain.MonthlyPayments;
-import com.tpdbd.cardpurchases.domain.Quota;
 import com.tpdbd.cardpurchases.domain.repository.CardRepository;
 import com.tpdbd.cardpurchases.domain.repository.DiscountRepository;
 import com.tpdbd.cardpurchases.domain.repository.FinancingRepository;
 import com.tpdbd.cardpurchases.domain.repository.MonthlyPaymentsRepository;
+import com.tpdbd.cardpurchases.domain.usecase.CreateMonthlyPurchaseUseCase;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class CreateMonthlyPurchase {
+public class CreateMonthlyPurchaseUseCaseImpl implements CreateMonthlyPurchaseUseCase {
     private final MonthlyPaymentsRepository monthlyPaymentsRepository;
     private final DiscountRepository discountRepository;
     private final FinancingRepository financingRepository;
     private final CardRepository cardRepository;
 
-    public CreateMonthlyPurchase(MonthlyPaymentsRepository monthlyPaymentsRepository, DiscountRepository discountRepository,
-                                 FinancingRepository financingRepository, CardRepository cardRepository) {
+    public CreateMonthlyPurchaseUseCaseImpl(MonthlyPaymentsRepository monthlyPaymentsRepository, DiscountRepository discountRepository,
+                                            FinancingRepository financingRepository, CardRepository cardRepository) {
         this.monthlyPaymentsRepository = monthlyPaymentsRepository;
         this.discountRepository = discountRepository;
         this.financingRepository = financingRepository;
         this.cardRepository = cardRepository;
     }
 
+    @Override
     public void invoke(CreatePurchaseCommand command) {
         MonthlyPayments monthlyPayments = parseCommandToMonthly(command);
         monthlyPaymentsRepository.save(monthlyPayments);

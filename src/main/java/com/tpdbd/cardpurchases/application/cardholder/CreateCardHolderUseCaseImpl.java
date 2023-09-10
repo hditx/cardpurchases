@@ -4,19 +4,21 @@ import com.tpdbd.cardpurchases.domain.Bank;
 import com.tpdbd.cardpurchases.domain.CardHolder;
 import com.tpdbd.cardpurchases.domain.repository.BankRepository;
 import com.tpdbd.cardpurchases.domain.repository.CardHolderRepository;
+import com.tpdbd.cardpurchases.domain.usecase.CreateCardHolderUseCase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class CreateCardHolder {
+public class CreateCardHolderUseCaseImpl implements CreateCardHolderUseCase {
     private final CardHolderRepository cardHolderRepository;
     private final BankRepository bankRepository;
 
-    public CreateCardHolder(CardHolderRepository cardHolderRepository, BankRepository bankRepository) {
+    public CreateCardHolderUseCaseImpl(CardHolderRepository cardHolderRepository, BankRepository bankRepository) {
         this.cardHolderRepository = cardHolderRepository;
         this.bankRepository = bankRepository;
     }
 
+    @Override
     public void invoke(CreateCardHolderCommand command) throws ParseException {
         var cardHolder = parseToCardHolder(command);
         cardHolderRepository.save(cardHolder);

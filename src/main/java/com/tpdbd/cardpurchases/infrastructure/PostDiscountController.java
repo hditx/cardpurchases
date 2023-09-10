@@ -1,9 +1,10 @@
 package com.tpdbd.cardpurchases.infrastructure;
 
-import com.tpdbd.cardpurchases.application.discount.CreateDiscount;
+import com.tpdbd.cardpurchases.application.discount.CreateDiscountUseCaseImpl;
 import com.tpdbd.cardpurchases.application.discount.CreateDiscountCommand;
 import com.tpdbd.cardpurchases.domain.repository.BankRepository;
 import com.tpdbd.cardpurchases.domain.repository.DiscountRepository;
+import com.tpdbd.cardpurchases.domain.usecase.CreateDiscountUseCase;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,15 +18,15 @@ import java.text.ParseException;
 @RequestMapping("/api/v1/discount")
 public class PostDiscountController {
 
-    private final CreateDiscount createDiscount;
+    private final CreateDiscountUseCase createDiscountUseCaseImpl;
 
     public PostDiscountController(DiscountRepository discountRepository, BankRepository bankRepository) {
-        this.createDiscount = new CreateDiscount(discountRepository, bankRepository);
+        this.createDiscountUseCaseImpl = new CreateDiscountUseCaseImpl(discountRepository, bankRepository);
     }
 
     @PostMapping
     public ResponseEntity<?> invoke(@RequestBody CreateDiscountCommand command) throws ParseException {
-        createDiscount.invoke(command);
+        createDiscountUseCaseImpl.invoke(command);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
