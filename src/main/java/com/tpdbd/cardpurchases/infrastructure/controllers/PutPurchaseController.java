@@ -1,7 +1,7 @@
 package com.tpdbd.cardpurchases.infrastructure.controllers;
 
 import com.tpdbd.cardpurchases.application.usecases.purchase.UpdatePurchaseDateCommand;
-import com.tpdbd.cardpurchases.domain.usecase.UpdatePurchaseDateUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.UpdatePurchaseDateUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;

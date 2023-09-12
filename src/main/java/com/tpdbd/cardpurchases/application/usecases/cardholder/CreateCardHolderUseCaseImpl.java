@@ -4,7 +4,7 @@ import com.tpdbd.cardpurchases.application.ports.BankPort;
 import com.tpdbd.cardpurchases.application.ports.CardHolderPort;
 import com.tpdbd.cardpurchases.domain.entities.Bank;
 import com.tpdbd.cardpurchases.domain.entities.CardHolder;
-import com.tpdbd.cardpurchases.domain.usecase.CreateCardHolderUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.CreateCardHolderUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.text.ParseException;

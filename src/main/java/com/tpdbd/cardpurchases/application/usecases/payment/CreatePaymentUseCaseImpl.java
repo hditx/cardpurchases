@@ -5,7 +5,7 @@ import com.tpdbd.cardpurchases.application.ports.PaymentPort;
 import com.tpdbd.cardpurchases.application.ports.QuotaPort;
 import com.tpdbd.cardpurchases.domain.entities.Payment;
 import com.tpdbd.cardpurchases.domain.entities.Quota;
-import com.tpdbd.cardpurchases.domain.usecase.CreatePaymentUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.CreatePaymentUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.text.ParseException;

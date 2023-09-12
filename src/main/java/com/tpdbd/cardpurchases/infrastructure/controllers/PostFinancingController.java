@@ -1,7 +1,7 @@
 package com.tpdbd.cardpurchases.infrastructure.controllers;
 
 import com.tpdbd.cardpurchases.application.usecases.financing.CreateFinancingCommand;
-import com.tpdbd.cardpurchases.domain.usecase.CreateFinancingUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.CreateFinancingUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

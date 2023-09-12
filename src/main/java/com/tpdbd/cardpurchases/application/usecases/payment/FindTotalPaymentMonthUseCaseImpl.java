@@ -2,7 +2,7 @@ package com.tpdbd.cardpurchases.application.usecases.payment;
 
 import com.tpdbd.cardpurchases.application.ports.PaymentPort;
 import com.tpdbd.cardpurchases.domain.entities.Payment;
-import com.tpdbd.cardpurchases.domain.usecase.FindTotalPaymentMonthUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.FindTotalPaymentMonthUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

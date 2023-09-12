@@ -3,7 +3,7 @@ package com.tpdbd.cardpurchases.application.usecases.discount;
 import com.tpdbd.cardpurchases.application.ports.BankPort;
 import com.tpdbd.cardpurchases.application.ports.DiscountPort;
 import com.tpdbd.cardpurchases.domain.entities.Discount;
-import com.tpdbd.cardpurchases.domain.usecase.CreateDiscountUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.CreateDiscountUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.text.ParseException;

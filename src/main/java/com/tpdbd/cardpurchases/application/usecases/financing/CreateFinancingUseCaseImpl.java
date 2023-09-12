@@ -3,7 +3,7 @@ package com.tpdbd.cardpurchases.application.usecases.financing;
 import com.tpdbd.cardpurchases.application.ports.BankPort;
 import com.tpdbd.cardpurchases.domain.entities.Financing;
 import com.tpdbd.cardpurchases.infrastructure.repositories.FinancingRepository;
-import com.tpdbd.cardpurchases.domain.usecase.CreateFinancingUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.CreateFinancingUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.text.ParseException;

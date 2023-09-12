@@ -2,7 +2,7 @@ package com.tpdbd.cardpurchases.application.usecases.card;
 
 import com.tpdbd.cardpurchases.application.ports.CardPort;
 import com.tpdbd.cardpurchases.domain.entities.Card;
-import com.tpdbd.cardpurchases.domain.usecase.FindExpirationCardUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.FindExpirationCardUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;

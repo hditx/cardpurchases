@@ -1,7 +1,7 @@
 package com.tpdbd.cardpurchases.infrastructure.controllers;
 
 import com.tpdbd.cardpurchases.application.usecases.discount.CreateDiscountCommand;
-import com.tpdbd.cardpurchases.domain.usecase.CreateDiscountUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.CreateDiscountUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

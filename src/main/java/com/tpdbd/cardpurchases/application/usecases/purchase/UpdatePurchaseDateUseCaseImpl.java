@@ -1,7 +1,7 @@
 package com.tpdbd.cardpurchases.application.usecases.purchase;
 
 import com.tpdbd.cardpurchases.application.ports.PaymentPort;
-import com.tpdbd.cardpurchases.domain.usecase.UpdatePurchaseDateUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.UpdatePurchaseDateUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.text.ParseException;

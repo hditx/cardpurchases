@@ -2,7 +2,7 @@ package com.tpdbd.cardpurchases.application.usecases.bank;
 
 import com.tpdbd.cardpurchases.application.ports.BankPort;
 import com.tpdbd.cardpurchases.domain.entities.Bank;
-import com.tpdbd.cardpurchases.domain.usecase.MostPaymentBankUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.MostPaymentBankUseCase;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

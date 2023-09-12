@@ -7,7 +7,7 @@ import com.tpdbd.cardpurchases.application.ports.PaymentPort;
 import com.tpdbd.cardpurchases.domain.entities.CashPayment;
 import com.tpdbd.cardpurchases.domain.entities.Discount;
 import com.tpdbd.cardpurchases.domain.entities.Payment;
-import com.tpdbd.cardpurchases.domain.usecase.CreateCashPurchaseUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.CreateCashPurchaseUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashSet;

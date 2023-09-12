@@ -1,6 +1,6 @@
 package com.tpdbd.cardpurchases.infrastructure.controllers;
 
-import com.tpdbd.cardpurchases.domain.usecase.FindExpirationCardUseCase;
+import com.tpdbd.cardpurchases.domain.usecases.FindExpirationCardUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

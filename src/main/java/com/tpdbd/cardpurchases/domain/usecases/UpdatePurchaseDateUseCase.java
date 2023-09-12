@@ -1,4 +1,4 @@
-package com.tpdbd.cardpurchases.domain.usecase;
+package com.tpdbd.cardpurchases.domain.usecases;
 
 import com.tpdbd.cardpurchases.application.usecases.purchase.UpdatePurchaseDateCommand;
 
