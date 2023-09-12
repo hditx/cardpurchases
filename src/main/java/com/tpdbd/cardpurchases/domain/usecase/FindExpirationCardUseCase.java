@@ -1,6 +1,6 @@
 package com.tpdbd.cardpurchases.domain.usecase;
 
-import com.tpdbd.cardpurchases.domain.Card;
+import com.tpdbd.cardpurchases.domain.entities.Card;
 
 import java.util.List;
 

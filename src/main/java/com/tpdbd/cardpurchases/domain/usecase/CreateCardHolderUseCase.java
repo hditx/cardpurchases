@@ -1,6 +1,6 @@
 package com.tpdbd.cardpurchases.domain.usecase;
 
-import com.tpdbd.cardpurchases.application.cardholder.CreateCardHolderCommand;
+import com.tpdbd.cardpurchases.application.usecases.cardholder.CreateCardHolderCommand;
 
 import java.text.ParseException;
 

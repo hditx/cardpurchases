@@ -1,6 +1,6 @@
 package com.tpdbd.cardpurchases.domain.usecase;
 
-import com.tpdbd.cardpurchases.application.financing.CreateFinancingCommand;
+import com.tpdbd.cardpurchases.application.usecases.financing.CreateFinancingCommand;
 
 import java.text.ParseException;
 

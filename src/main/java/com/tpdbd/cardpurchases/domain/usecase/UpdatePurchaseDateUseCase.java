@@ -1,6 +1,6 @@
 package com.tpdbd.cardpurchases.domain.usecase;
 
-import com.tpdbd.cardpurchases.application.purchase.UpdatePurchaseDateCommand;
+import com.tpdbd.cardpurchases.application.usecases.purchase.UpdatePurchaseDateCommand;
 
 import java.text.ParseException;
 

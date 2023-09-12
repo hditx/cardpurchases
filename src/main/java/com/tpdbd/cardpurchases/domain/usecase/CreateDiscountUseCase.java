@@ -1,6 +1,6 @@
 package com.tpdbd.cardpurchases.domain.usecase;
 
-import com.tpdbd.cardpurchases.application.discount.CreateDiscountCommand;
+import com.tpdbd.cardpurchases.application.usecases.discount.CreateDiscountCommand;
 
 import java.text.ParseException;
 
