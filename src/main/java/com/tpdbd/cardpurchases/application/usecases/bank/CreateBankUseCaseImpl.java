@@ -19,10 +19,10 @@ public class CreateBankUseCaseImpl implements CreateBankUseCase {
     private Bank parseToBank(CreateBankCommand command) {
         return Bank
                 .builder()
-                .telephone(command.telephone())
-                .cuit(command.cuit())
-                .name(command.name())
-                .address(command.address())
+                .telephone(command.getTelephone())
+                .cuit(command.getCuit())
+                .name(command.getName())
+                .address(command.getAddress())
                 .build();
     }
 }
