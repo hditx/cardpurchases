@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class CreateFinancingCommand {
-    private String bankId;
+    private Long bankId;
     private String code;
     private String promotionTitle;
     private String nameStore;

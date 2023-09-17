@@ -18,8 +18,10 @@ public class Financing extends Promotion{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "number_of_quotas", nullable = false, length = 2)
     private int numberOfQuotas;
 
+    @Column(name = "interes", precision = 2)
     private float interes;
 
     @ManyToOne(fetch = FetchType.LAZY)

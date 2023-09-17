@@ -17,10 +17,13 @@ public class Discount extends Promotion{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "discount_percentage", precision = 2)
     private float discountPercentage;
 
+    @Column(name = "price_cap", precision = 2)
     private float priceCap;
 
+    @Column(name = "only_cash", nullable = false)
     private boolean onlyCash;
 
     @ManyToOne(fetch = FetchType.LAZY)

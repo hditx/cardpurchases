@@ -16,8 +16,10 @@ public class MonthlyPayments extends Purchase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "interes", precision = 2)
     private float interest;
 
+    @Column(name = "number_of_quotas", length = 2)
     private int numberOfQuotas;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "card_id")

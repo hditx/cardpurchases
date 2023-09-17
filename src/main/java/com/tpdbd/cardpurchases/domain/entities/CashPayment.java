@@ -15,6 +15,7 @@ public class CashPayment extends Purchase{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "store_discount", precision = 2)
     private float storeDiscount;
 
     @ManyToOne(fetch = FetchType.LAZY)
