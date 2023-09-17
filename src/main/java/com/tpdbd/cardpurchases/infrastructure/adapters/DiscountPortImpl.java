@@ -21,7 +21,7 @@ public class DiscountPortImpl implements DiscountPort {
     }
 
     @Override
-    public Optional<Discount> findById(String id) {
+    public Optional<Discount> findById(Long id) {
         return discountRepository.findById(id);
     }
 }

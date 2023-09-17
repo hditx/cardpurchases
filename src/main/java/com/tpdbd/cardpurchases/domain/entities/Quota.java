@@ -1,10 +1,10 @@
 package com.tpdbd.cardpurchases.domain.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("quotas")
+@Entity
+@Table(name = "quota")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -12,12 +12,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 public class Quota {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private  int number;
     private float price;
     private String month;
     private String year;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "payment_id")
     private Payment paymentId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "monthly_payments_id")
     private MonthlyPayments monthlyPaymentsId;
 
 }

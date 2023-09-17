@@ -26,7 +26,8 @@ public class CardPortImpl implements CardPort {
     }
 
     @Override
-    public Optional<Card> findById(String id) {
+    public Optional<Card> findById(Long id) {
         return cardRepository.findById(id);
     }
+
 }

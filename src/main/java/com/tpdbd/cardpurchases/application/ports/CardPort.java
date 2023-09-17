@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface CardPort {
     List<Card> findByExpirationDateLessThanEqual(Date expirationDate);
     Card save(Card card);
-    Optional<Card> findById(String id);
+    Optional<Card> findById(Long id);
 
 }

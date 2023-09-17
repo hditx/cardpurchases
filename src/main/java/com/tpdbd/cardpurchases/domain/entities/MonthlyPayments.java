@@ -1,34 +1,35 @@
 package com.tpdbd.cardpurchases.domain.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Document("monthly_payments")
+@Entity
+@Table(name = "monthly_payments")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class MonthlyPayments extends Purchase {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private float interest;
 
     private int numberOfQuotas;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "card_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "card_id")
     private Card cardId;
 
-//    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<Quota> quotasId = new HashSet<Quota>();
 
-//    @ManyToMany
+    @ManyToMany
     private Set<Discount> discountsId;
 
-//    @ManyToMany
+    @ManyToMany
     private Set<Financing> financingsId;
 
     @Builder

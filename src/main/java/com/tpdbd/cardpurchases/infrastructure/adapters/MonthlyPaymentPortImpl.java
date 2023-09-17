@@ -14,7 +14,7 @@ public class MonthlyPaymentPortImpl implements MonthlyPaymentPort {
     private final MonthlyPaymentsRepository monthlyPaymentsRepository;
 
     @Override
-    public Optional<MonthlyPayments> findById(String id) {
+    public Optional<MonthlyPayments> findById(Long id) {
         return monthlyPaymentsRepository.findById(id);
     }
 

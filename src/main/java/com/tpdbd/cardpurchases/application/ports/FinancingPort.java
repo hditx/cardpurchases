@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface FinancingPort {
     Financing save(Financing financing);
-    Optional<Financing> findById(String id);
+    Optional<Financing> findById(Long id);
 }

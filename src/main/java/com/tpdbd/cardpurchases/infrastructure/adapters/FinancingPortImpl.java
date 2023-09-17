@@ -20,7 +20,7 @@ public class FinancingPortImpl implements FinancingPort {
     }
 
     @Override
-    public Optional<Financing> findById(String id) {
+    public Optional<Financing> findById(Long id) {
         return financingRepository.findById(id);
     }
 }

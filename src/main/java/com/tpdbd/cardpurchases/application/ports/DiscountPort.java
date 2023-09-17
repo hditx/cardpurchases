@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface DiscountPort {
     Discount save(Discount discount);
-    Optional<Discount> findById(String id);
+    Optional<Discount> findById(Long id);
 }

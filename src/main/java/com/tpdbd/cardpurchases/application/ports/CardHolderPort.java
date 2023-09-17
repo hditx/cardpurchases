@@ -7,5 +7,5 @@ import java.util.Optional;
 public interface CardHolderPort {
     CardHolder save(CardHolder cardHolder);
 
-    Optional<CardHolder> findById(String id);
+    Optional<CardHolder> findById(Long id);
 }

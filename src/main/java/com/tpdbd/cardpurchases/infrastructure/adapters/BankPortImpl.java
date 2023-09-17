@@ -19,7 +19,8 @@ public class BankPortImpl implements BankPort {
     }
 
     @Override
-    public Optional<Bank> findById(String id) {
+    public Optional<Bank> findById(Long id) {
         return bankRepository.findById(id);
     }
+
 }

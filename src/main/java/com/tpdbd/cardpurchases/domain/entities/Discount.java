@@ -1,20 +1,21 @@
 package com.tpdbd.cardpurchases.domain.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.Set;
 
-@Document("discounts")
+@Entity
+@Table(name = "discount")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class Discount extends Promotion{
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private float discountPercentage;
 
@@ -22,14 +23,14 @@ public class Discount extends Promotion{
 
     private boolean onlyCash;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "bank_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bank_id")
     private Bank bankId;
 
-//    @ManyToMany
+    @ManyToMany
     private Set<MonthlyPayments> monthlyPaymentsId;
 
-//    @ManyToMany
+    @ManyToMany
     private Set<CashPayment> cashPaymentsId;
 
     @Builder

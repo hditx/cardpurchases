@@ -1,33 +1,34 @@
 package com.tpdbd.cardpurchases.domain.entities;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Set;
 
-@Document("cash_payments")
+@Entity
+@Table(name = "cash_payment")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class CashPayment extends Purchase{
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private float storeDiscount;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "card_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "card_id")
     private Card cardId;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "payment_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "payment_id")
     private Payment paymentId;
 
-//    @ManyToMany
+    @ManyToMany
     private Set<Discount> discountsId;
 
-//    @ManyToMany
+    @ManyToMany
     private Set<Financing> financingsId;
 
     @Builder

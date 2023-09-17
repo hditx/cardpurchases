@@ -18,7 +18,7 @@ public class CreateFinancingUseCaseImpl implements CreateFinancingUseCase {
     public void invoke(CreateFinancingCommand command) throws ParseException {
         var financing = parseToFinancing(command);
         financing.setBankId(bankPort.findById(command.getBankId()).get());
-        financingRepository.save(financing);
+//        financingRepository.save(financing);
     }
 
     private Financing parseToFinancing(CreateFinancingCommand command) throws ParseException {
