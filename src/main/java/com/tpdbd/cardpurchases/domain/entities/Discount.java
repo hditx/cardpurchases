@@ -2,7 +2,10 @@ package com.tpdbd.cardpurchases.domain.entities;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import java.util.Date;
 import java.util.Set;
@@ -15,21 +18,16 @@ import java.util.Set;
 public class Discount extends Promotion{
     @Id
     private String id;
-
+    @Field(name = "discount_percentage", targetType = FieldType.DOUBLE)
     private float discountPercentage;
-
+    @Field(name = "price_cap", targetType = FieldType.DOUBLE)
     private float priceCap;
-
+    @Field(name = "only_cash", targetType = FieldType.BOOLEAN)
     private boolean onlyCash;
-
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "bank_id")
+    @DBRef
+    @Field(name = "bank_id")
     private Bank bankId;
-
-//    @ManyToMany
     private Set<MonthlyPayments> monthlyPaymentsId;
-
-//    @ManyToMany
     private Set<CashPayment> cashPaymentsId;
 
     @Builder

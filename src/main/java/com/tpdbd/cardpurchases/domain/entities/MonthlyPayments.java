@@ -2,7 +2,10 @@ package com.tpdbd.cardpurchases.domain.entities;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,20 +18,15 @@ import java.util.Set;
 public class MonthlyPayments extends Purchase {
     @Id
     private String id;
+    @Field(name = "interest", targetType = FieldType.DOUBLE)
     private float interest;
-
+    @Field(name = "number_of_quotas", targetType = FieldType.INT32)
     private int numberOfQuotas;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "card_id")
+    @DBRef
+    @Field(name = "card_id")
     private Card cardId;
-
-//    @OneToMany(fetch = FetchType.LAZY)
     private Set<Quota> quotasId = new HashSet<Quota>();
-
-//    @ManyToMany
     private Set<Discount> discountsId;
-
-//    @ManyToMany
     private Set<Financing> financingsId;
 
     @Builder

@@ -81,7 +81,7 @@ public class CreateMonthlyPurchaseUseCaseImpl implements CreateMonthlyPurchaseUs
                 .stream()
                 .filter(financing -> financing.getNumberOfQuotas() == command.getNumberOfQuotas())
                 .forEach(financing -> {
-                    amount.set(amount.get() + (amount.get() * financing.getInteres()));
+                    amount.set(amount.get() + (amount.get() * financing.getInterest()));
                 });
         return amount.get();
     }

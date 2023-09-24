@@ -2,7 +2,10 @@ package com.tpdbd.cardpurchases.domain.entities;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import java.util.Set;
 
@@ -14,20 +17,15 @@ import java.util.Set;
 public class CashPayment extends Purchase{
     @Id
     private String id;
+    @Field(name = "store_discount", targetType = FieldType.DOUBLE)
     private float storeDiscount;
-
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "card_id")
+    @DBRef
+    @Field(name = "card_id")
     private Card cardId;
-
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "payment_id")
+    @DBRef
+    @Field(name = "payment_id")
     private Payment paymentId;
-
-//    @ManyToMany
     private Set<Discount> discountsId;
-
-//    @ManyToMany
     private Set<Financing> financingsId;
 
     @Builder
