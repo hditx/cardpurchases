@@ -23,10 +23,10 @@ public class CreatePurchaseCommand {
     private float storeDiscount;
     private float interest;
     private int numberOfQuotas;
-    private String cardId;
-    private String paymentId;
-    private List<String> discountsId;
-    private List<String> financingsId;
+    private Long cardId;
+    private Long paymentId;
+    private List<Long> discountsId;
+    private List<Long> financingsId;
     private String code;
     private String month;
     private String year;

@@ -12,6 +12,6 @@ public class MostPaymentBankUseCaseImpl implements MostPaymentBankUseCase {
 
     @Override
     public Bank invoke() {
-        return bankPort.findById("1L").get();
+        return bankPort.findById(1L).get();
     }
 }

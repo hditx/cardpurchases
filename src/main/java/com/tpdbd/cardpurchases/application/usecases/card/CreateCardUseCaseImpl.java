@@ -38,11 +38,11 @@ public class CreateCardUseCaseImpl implements CreateCardUseCase {
                 .build();
     }
 
-    private Bank findBank(String bankId) {
+    private Bank findBank(Long bankId) {
         return bankPort.findById(bankId).get();
     }
 
-    private CardHolder findCardHolder(String cardHolderId) {
+    private CardHolder findCardHolder(Long cardHolderId) {
         return cardHolderPort.findById(cardHolderId).get();
     }
 }

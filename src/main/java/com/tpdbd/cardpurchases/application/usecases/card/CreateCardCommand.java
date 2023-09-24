@@ -17,6 +17,6 @@ public class CreateCardCommand {
     private String cardHolderNameInCard;
     private String since;
     private String expirationDate;
-    private String cardHolderId;
-    private String bankId;
+    private Long cardHolderId;
+    private Long bankId;
 }

@@ -1,0 +1,89 @@
+package com.tpdbd.cardpurchases;
+
+import com.tpdbd.cardpurchases.application.ports.*;
+import com.tpdbd.cardpurchases.application.usecases.bank.CreateBankUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.bank.MostPaymentBankUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.card.CreateCardUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.card.FindExpirationCardUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.cardholder.CreateCardHolderUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.discount.CreateDiscountUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.financing.CreateFinancingUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.payment.CreatePaymentUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.payment.FindTotalPaymentMonthUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.purchase.CreateCashPurchaseUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.purchase.CreateMonthlyPurchaseUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.purchase.UpdatePurchaseDateUseCaseImpl;
+import com.tpdbd.cardpurchases.domain.usecases.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
+@Configuration
+@ComponentScan(basePackages = {"com.tpdbd.cardpurchases.infrastructure.repositories"})
+public class Config {
+
+    @Bean
+    public FindExpirationCardUseCase getFindExpirationCardUseCase(CardPort cardPort) {
+        return new FindExpirationCardUseCaseImpl(cardPort);
+    }
+
+    @Bean
+    public CreateBankUseCase getCreateBakUseCase(BankPort bankPort) {
+        return new CreateBankUseCaseImpl(bankPort);
+    }
+
+    @Bean
+    public CreateCardHolderUseCase getCreateCardHolderUserCase(CardHolderPort cardHolderPort, BankPort bankPort) {
+        return new CreateCardHolderUseCaseImpl(cardHolderPort, bankPort);
+    }
+
+    @Bean
+    public CreateCardUseCase getCreateCardUseCase(CardPort cardPort, BankPort bankPort,
+                                                  CardHolderPort cardHolderPort) {
+        return new CreateCardUseCaseImpl(cardPort, bankPort, cardHolderPort);
+    }
+
+    @Bean
+    public CreateCashPurchaseUseCase getCreateCashPurchaseUseCase(CashPaymentPort cashPaymentPort, CardPort cardPort,
+                                                                  DiscountPort discountPort, PaymentPort paymentPort) {
+        return new CreateCashPurchaseUseCaseImpl(cashPaymentPort, cardPort, discountPort, paymentPort);
+    }
+
+    @Bean
+    public CreateDiscountUseCase getCreateDiscountUseCase(DiscountPort discountPort, BankPort bankPort) {
+        return new CreateDiscountUseCaseImpl(discountPort, bankPort);
+    }
+
+    @Bean
+    public CreateFinancingUseCase getCreateFinancingUseCase(FinancingPort financingPort, BankPort bankPort) {
+        return new CreateFinancingUseCaseImpl(financingPort, bankPort);
+    }
+
+    @Bean
+    public CreateMonthlyPurchaseUseCase getCreateMonthlyPurchaseUseCase(MonthlyPaymentPort monthlyPaymentPort, DiscountPort discountPort,
+                                                                        FinancingPort financingPort, CardPort cardPort) {
+        return new CreateMonthlyPurchaseUseCaseImpl(monthlyPaymentPort, discountPort, financingPort, cardPort);
+    }
+
+    @Bean
+    public CreatePaymentUseCase getCreatePaymentUseCase(PaymentPort paymentPort, MonthlyPaymentPort monthlyPaymentPort,
+                                                        QuotaPort quotaPort) {
+        return new CreatePaymentUseCaseImpl(paymentPort, monthlyPaymentPort, quotaPort);
+    }
+
+    @Bean
+    public FindTotalPaymentMonthUseCase getFindTotalPaymentMonthUseCase(PaymentPort paymentPort) {
+        return new FindTotalPaymentMonthUseCaseImpl(paymentPort);
+    }
+
+    @Bean
+    public MostPaymentBankUseCase getMostPaymentBankUseCase(BankPort bankPort) {
+        return new MostPaymentBankUseCaseImpl(bankPort);
+    }
+
+    @Bean
+    public UpdatePurchaseDateUseCase getUpdatePurchaseDateUseCase(PaymentPort paymentPort) {
+        return new UpdatePurchaseDateUseCaseImpl(paymentPort);
+    }
+}

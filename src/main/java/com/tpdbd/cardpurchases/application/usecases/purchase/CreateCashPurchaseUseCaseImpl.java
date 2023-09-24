@@ -48,7 +48,7 @@ public class CreateCashPurchaseUseCaseImpl implements CreateCashPurchaseUseCase 
                 .build();
     }
 
-    private Set<Discount> findDiscounts(List<String> discountsId) {
+    private Set<Discount> findDiscounts(List<Long> discountsId) {
         Set<Discount> discounts = new HashSet<>();
         discountsId.forEach(id -> {
             var discount = discountPort.findById(id).get();
