@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "payment")
+@Table(name = "payments")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

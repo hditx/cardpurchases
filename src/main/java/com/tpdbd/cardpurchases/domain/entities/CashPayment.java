@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@DiscriminatorValue("cash_payment")
+@DiscriminatorValue("cash_payments")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

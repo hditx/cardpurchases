@@ -47,7 +47,7 @@ public class CreateMonthlyPurchaseUseCaseImpl implements CreateMonthlyPurchaseUs
                 .paymentVoucher(command.getPaymentVoucher())
                 .build();
     }
-    private Set<Discount> findDiscounts(List<String> discountsId) {
+    private Set<Discount> findDiscounts(List<Long> discountsId) {
         Set<Discount> discounts = new HashSet<>();
         discountsId.forEach(id -> {
             var discount = discountPort.findById(id).get();
@@ -56,7 +56,7 @@ public class CreateMonthlyPurchaseUseCaseImpl implements CreateMonthlyPurchaseUs
         return  discounts;
     }
 
-    private Set<Financing> findFinancing(List<String> financingsId) {
+    private Set<Financing> findFinancing(List<Long> financingsId) {
         Set<Financing> financings = new HashSet<>();
         financingsId.forEach(id -> {
             var financing = financingPort.findById(id).get();

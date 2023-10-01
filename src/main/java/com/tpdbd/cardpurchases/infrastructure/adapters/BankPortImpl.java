@@ -23,4 +23,9 @@ public class BankPortImpl implements BankPort {
         return bankRepository.findById(id);
     }
 
+    @Override
+    public Bank findMostPaymentWithCard() {
+        return bankRepository.findMostPaymentWithCard();
+    }
+
 }

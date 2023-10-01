@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface BankPort {
     Bank save(Bank bank);
     Optional<Bank> findById(Long id);
+
+    Bank findMostPaymentWithCard();
 }

@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@DiscriminatorValue("discount")
+@DiscriminatorValue("discounts")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter

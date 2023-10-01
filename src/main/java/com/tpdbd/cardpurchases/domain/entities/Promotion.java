@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
+@Table(name = "promotions")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 @NoArgsConstructor
@@ -31,9 +32,6 @@ public abstract class Promotion {
     private Date validityEndDate;
     @Column(name = "comments", length = 100)
     private String comments;
-
-    @ManyToMany
-    private Set<Purchase> purchases;
 
     public Promotion(String code, String promotionTitle, String nameStore, String cuitStore, Date validityStartDate, Date validityEndDate, String comments) {
         this.code = code;
