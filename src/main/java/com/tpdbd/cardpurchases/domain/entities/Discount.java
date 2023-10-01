@@ -7,15 +7,12 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "discount")
+@DiscriminatorValue("discount")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class Discount extends Promotion{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @Column(name = "discount_percentage", precision = 2)
     private float discountPercentage;

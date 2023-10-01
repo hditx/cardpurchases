@@ -7,15 +7,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "monthly_payments")
+@DiscriminatorValue("monthly_payments")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class MonthlyPayments extends Purchase {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @Column(name = "interes", precision = 2)
     private float interest;
 

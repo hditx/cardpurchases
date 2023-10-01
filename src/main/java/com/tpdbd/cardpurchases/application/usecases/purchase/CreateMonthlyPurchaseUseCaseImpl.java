@@ -7,6 +7,7 @@ import com.tpdbd.cardpurchases.application.ports.MonthlyPaymentPort;
 import com.tpdbd.cardpurchases.domain.entities.Discount;
 import com.tpdbd.cardpurchases.domain.entities.Financing;
 import com.tpdbd.cardpurchases.domain.entities.MonthlyPayments;
+import com.tpdbd.cardpurchases.domain.entities.Promotion;
 import com.tpdbd.cardpurchases.domain.usecases.CreateMonthlyPurchaseUseCase;
 import lombok.RequiredArgsConstructor;
 
@@ -46,7 +47,7 @@ public class CreateMonthlyPurchaseUseCaseImpl implements CreateMonthlyPurchaseUs
                 .paymentVoucher(command.getPaymentVoucher())
                 .build();
     }
-    private Set<Discount> findDiscounts(List<Long> discountsId) {
+    private Set<Discount> findDiscounts(List<String> discountsId) {
         Set<Discount> discounts = new HashSet<>();
         discountsId.forEach(id -> {
             var discount = discountPort.findById(id).get();
@@ -55,7 +56,7 @@ public class CreateMonthlyPurchaseUseCaseImpl implements CreateMonthlyPurchaseUs
         return  discounts;
     }
 
-    private Set<Financing> findFinancing(List<Long> financingsId) {
+    private Set<Financing> findFinancing(List<String> financingsId) {
         Set<Financing> financings = new HashSet<>();
         financingsId.forEach(id -> {
             var financing = financingPort.findById(id).get();

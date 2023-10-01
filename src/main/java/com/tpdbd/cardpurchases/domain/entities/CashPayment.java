@@ -6,15 +6,12 @@ import lombok.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "cash_payment")
+@DiscriminatorValue("cash_payment")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class CashPayment extends Purchase{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @Column(name = "store_discount", precision = 2)
     private float storeDiscount;
 

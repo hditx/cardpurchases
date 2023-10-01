@@ -7,16 +7,12 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "financing")
+@DiscriminatorValue("financing")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class Financing extends Promotion{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @Column(name = "number_of_quotas", nullable = false, length = 2)
     private int numberOfQuotas;
@@ -29,7 +25,7 @@ public class Financing extends Promotion{
     private Bank bankId;
 
     @ManyToMany
-    private Set<MonthlyPayments> monthlyPaymentsId;
+    private Set<Purchase> monthlyPaymentsId;
 
     @ManyToMany
     private Set<CashPayment> cashPaymentsId;
