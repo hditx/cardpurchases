@@ -19,8 +19,9 @@ public class CardHolderPortImpl implements CardHolderPort {
         return cardHolderRepository.save(cardHolder);
     }
 
+
     @Override
-    public Optional<CardHolder> findById(String id) {
+    public Optional<CardHolder> findById(Long id) {
         return cardHolderRepository.findById(id);
     }
 }

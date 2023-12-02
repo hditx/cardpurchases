@@ -7,6 +7,7 @@ import com.tpdbd.cardpurchases.application.ports.MonthlyPaymentPort;
 import com.tpdbd.cardpurchases.domain.entities.Discount;
 import com.tpdbd.cardpurchases.domain.entities.Financing;
 import com.tpdbd.cardpurchases.domain.entities.MonthlyPayments;
+import com.tpdbd.cardpurchases.domain.entities.Promotion;
 import com.tpdbd.cardpurchases.domain.usecases.CreateMonthlyPurchaseUseCase;
 import lombok.RequiredArgsConstructor;
 

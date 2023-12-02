@@ -20,7 +20,7 @@ public class Financing extends Promotion{
     private String id;
     @Field(name = "number_of_quotas", targetType = FieldType.INT32)
     private int numberOfQuotas;
-    @Field(name = "interes", targetType = FieldType.DOUBLE)
+    @Field(name = "interest", targetType = FieldType.DOUBLE)
     private float interest;
     @DBRef
     @Field(name = "bank_id")
