@@ -10,14 +10,12 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 import java.util.Date;
 import java.util.Set;
 
-@Document("discounts")
+@Document(collation = "promotion")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class Discount extends Promotion{
-    @Id
-    private String id;
     @Field(name = "discount_percentage", targetType = FieldType.DOUBLE)
     private float discountPercentage;
     @Field(name = "price_cap", targetType = FieldType.DOUBLE)

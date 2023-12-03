@@ -4,6 +4,7 @@ import com.tpdbd.cardpurchases.application.ports.CardHolderPort;
 import com.tpdbd.cardpurchases.domain.entities.CardHolder;
 import com.tpdbd.cardpurchases.infrastructure.repositories.CardHolderRepository;
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -21,7 +22,7 @@ public class CardHolderPortImpl implements CardHolderPort {
 
 
     @Override
-    public Optional<CardHolder> findById(Long id) {
-        return cardHolderRepository.findById(id);
+    public Optional<CardHolder> findById(String id) {
+        return cardHolderRepository.findById(new ObjectId(id));
     }
 }

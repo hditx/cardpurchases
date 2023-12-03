@@ -5,6 +5,10 @@ import com.tpdbd.cardpurchases.application.usecases.promotion.FilterStoreValidDa
 import com.tpdbd.cardpurchases.domain.entities.Discount;
 import com.tpdbd.cardpurchases.infrastructure.repositories.DiscountRepository;
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,6 +19,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DiscountPortImpl implements DiscountPort {
 
+    private final MongoTemplate mongoTemplate;
+
     private final DiscountRepository discountRepository;
 
     @Override
@@ -24,7 +30,7 @@ public class DiscountPortImpl implements DiscountPort {
 
     @Override
     public Optional<Discount> findById(String id) {
-        return discountRepository.findById(id);
+        return discountRepository.findById(new ObjectId(id));
     }
 
     @Override
@@ -39,7 +45,11 @@ public class DiscountPortImpl implements DiscountPort {
 
     @Override
     public List<Discount> findByStoreNameAndBetweenStartDateAndEndDate(FilterStoreValidDateCommand filterStoreValidDate) {
-        return discountRepository.findByStoreNameAndBetweenValidityStartDateAndValidityEndDate(filterStoreValidDate.store(),
-                filterStoreValidDate.startDate(), filterStoreValidDate.endDate());
+        Query query = new Query();
+        query.addCriteria(Criteria.where("storeName").is(filterStoreValidDate.store())
+                .and("validityStartDate").gte(filterStoreValidDate.startDate())
+                .and("validityEndDate").lte(filterStoreValidDate.endDate()));
+
+        return mongoTemplate.find(query, Discount.class, "promotion");
     }
 }

@@ -1,6 +1,7 @@
 package com.tpdbd.cardpurchases.domain.entities;
 
 import lombok.*;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,7 +18,7 @@ import java.util.Date;
 @Builder
 public class CardHolder {
     @Id
-    private String id;
+    private ObjectId id;
     @Field(name = "complete_name", targetType = FieldType.STRING)
     private String completeName;
     @Field(name = "dni", targetType = FieldType.STRING)

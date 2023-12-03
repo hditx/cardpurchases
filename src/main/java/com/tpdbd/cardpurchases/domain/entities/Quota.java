@@ -1,6 +1,7 @@
 package com.tpdbd.cardpurchases.domain.entities;
 
 import lombok.*;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,7 +16,7 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 @Builder
 public class Quota {
     @Id
-    private String id;
+    private ObjectId id;
     @Field(name = "number", targetType = FieldType.INT32)
     private  int number;
     @Field(name = "price", targetType = FieldType.DOUBLE)

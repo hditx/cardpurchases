@@ -9,14 +9,12 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import java.util.Set;
 
-@Document("cash_payments")
+@Document("purchase")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class CashPayment extends Purchase{
-    @Id
-    private String id;
     @Field(name = "store_discount", targetType = FieldType.DOUBLE)
     private float storeDiscount;
     @DBRef

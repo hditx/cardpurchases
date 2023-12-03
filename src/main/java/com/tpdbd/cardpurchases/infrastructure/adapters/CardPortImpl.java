@@ -4,6 +4,7 @@ import com.tpdbd.cardpurchases.application.ports.CardPort;
 import com.tpdbd.cardpurchases.domain.entities.Card;
 import com.tpdbd.cardpurchases.infrastructure.repositories.CardRepository;
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -26,8 +27,8 @@ public class CardPortImpl implements CardPort {
     }
 
     @Override
-    public Optional<Card> findById(Long id) {
-        return cardRepository.findById(id);
+    public Optional<Card> findById(String id) {
+        return cardRepository.findById(new ObjectId(id));
     }
 
 }

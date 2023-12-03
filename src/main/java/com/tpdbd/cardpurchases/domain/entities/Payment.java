@@ -1,6 +1,7 @@
 package com.tpdbd.cardpurchases.domain.entities;
 
 import lombok.*;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -18,7 +19,7 @@ import java.util.Set;
 @Builder
 public class Payment {
     @Id
-    private String id;
+    private ObjectId id;
     @Field(name = "code", targetType = FieldType.STRING)
     private String code;
     @Field(name = "month", targetType = FieldType.STRING)

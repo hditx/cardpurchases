@@ -10,14 +10,12 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 import java.util.HashSet;
 import java.util.Set;
 
-@Document("monthly_payments")
+@Document(collation = "purchase")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class MonthlyPayments extends Purchase {
-    @Id
-    private String id;
     @Field(name = "interest", targetType = FieldType.DOUBLE)
     private float interest;
     @Field(name = "number_of_quotas", targetType = FieldType.INT32)

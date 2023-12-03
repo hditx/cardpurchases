@@ -4,6 +4,7 @@ import com.tpdbd.cardpurchases.application.ports.MonthlyPaymentPort;
 import com.tpdbd.cardpurchases.domain.entities.MonthlyPayments;
 import com.tpdbd.cardpurchases.infrastructure.repositories.MonthlyPaymentsRepository;
 import lombok.RequiredArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
@@ -15,7 +16,7 @@ public class MonthlyPaymentPortImpl implements MonthlyPaymentPort {
 
     @Override
     public Optional<MonthlyPayments> findById(String id) {
-        return monthlyPaymentsRepository.findById(id);
+        return monthlyPaymentsRepository.findById(new ObjectId(id));
     }
 
     @Override

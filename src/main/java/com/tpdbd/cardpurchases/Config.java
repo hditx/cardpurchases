@@ -2,6 +2,7 @@ package com.tpdbd.cardpurchases;
 
 import com.tpdbd.cardpurchases.application.ports.*;
 import com.tpdbd.cardpurchases.application.usecases.bank.CreateBankUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.bank.FindBankMostPaymentWithCardUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.bank.MostPaymentBankUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.card.CreateCardUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.card.FindExpirationCardUseCaseImpl;
@@ -10,6 +11,8 @@ import com.tpdbd.cardpurchases.application.usecases.discount.CreateDiscountUseCa
 import com.tpdbd.cardpurchases.application.usecases.financing.CreateFinancingUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.payment.CreatePaymentUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.payment.FindTotalPaymentMonthUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.promotion.DeletePromotionByCodeUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.promotion.ValidPromotionStoreUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.purchase.CreateCashPurchaseUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.purchase.CreateMonthlyPurchaseUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.purchase.UpdatePurchaseDateUseCaseImpl;
@@ -94,5 +97,20 @@ public class Config {
     @Bean
     public UpdatePurchaseDateUseCase getUpdatePurchaseDateUseCase(PaymentPort paymentPort) {
         return new UpdatePurchaseDateUseCaseImpl(paymentPort);
+    }
+
+    @Bean
+    public DeletePromotionByCodeUseCase getDeletePromotionByCodeUseCase(DiscountPort discountPort, FinancingPort financingPort) {
+        return new DeletePromotionByCodeUseCaseImpl(discountPort, financingPort);
+    }
+
+    @Bean
+    public ValidPromotionStoreUseCase getValidPromotionStoreUseCase(DiscountPort discountPort, FinancingPort financingPort) {
+        return new ValidPromotionStoreUseCaseImpl(discountPort, financingPort);
+    }
+
+    @Bean
+    public FindBankMostPaymentWithCardUseCase getFindBankMostPaymentWithCardUseCase(BankPort bankPort) {
+        return new FindBankMostPaymentWithCardUseCaseImpl(bankPort);
     }
 }

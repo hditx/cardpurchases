@@ -10,14 +10,12 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 import java.util.Date;
 import java.util.Set;
 
-@Document("financings")
+@Document(collation = "promotion")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 public class Financing extends Promotion{
-    @Id
-    private String id;
     @Field(name = "number_of_quotas", targetType = FieldType.INT32)
     private int numberOfQuotas;
     @Field(name = "interest", targetType = FieldType.DOUBLE)
