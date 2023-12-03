@@ -25,7 +25,10 @@ public class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
         Payment payment = parseCommandToPayment(command);
         payment = paymentPort.save(payment);
         Quota quota = generateQuota(command, payment);
-        quotaPort.save(quota);
+        quota = quotaPort.save(quota);
+        var monthly = monthlyPaymentPort.findById(command.getMonthlyId()).get();
+        monthly.getQuotas().add(quota);
+        monthlyPaymentPort.save(monthly);
     }
 
     private Payment parseCommandToPayment(CreatePaymentCommand command) throws ParseException {
@@ -43,14 +46,12 @@ public class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
     }
 
     private Quota generateQuota(CreatePaymentCommand command, Payment payment) {
-        var monthly = monthlyPaymentPort.findById(command.getMonthlyId()).get();
         return Quota
                 .builder()
                 .paymentId(payment)
                 .month(command.getMonth())
                 .year(command.getYear())
                 .price(command.getTotalPrice())
-                .monthlyPaymentsId(monthly)
                 .number(Math.toIntExact(command.getNumberQuota()))
                 .build();
     }

@@ -28,8 +28,5 @@ public class Quota {
     @DBRef
     @Field(name = "payment_id")
     private Payment paymentId;
-    @DBRef
-    @Field(name = "monthly_payments_id")
-    private MonthlyPayments monthlyPaymentsId;
 
 }

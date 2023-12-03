@@ -7,6 +7,7 @@ import com.tpdbd.cardpurchases.application.usecases.bank.MostPaymentBankUseCaseI
 import com.tpdbd.cardpurchases.application.usecases.card.CreateCardUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.card.FindExpirationCardUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.cardholder.CreateCardHolderUseCaseImpl;
+import com.tpdbd.cardpurchases.application.usecases.cardholder.FindCardHolderMostPurchaseUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.discount.CreateDiscountUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.financing.CreateFinancingUseCaseImpl;
 import com.tpdbd.cardpurchases.application.usecases.payment.CreatePaymentUseCaseImpl;
@@ -112,5 +113,10 @@ public class Config {
     @Bean
     public FindBankMostPaymentWithCardUseCase getFindBankMostPaymentWithCardUseCase(BankPort bankPort) {
         return new FindBankMostPaymentWithCardUseCaseImpl(bankPort);
+    }
+
+    @Bean
+    public FindCardHolderMostPurchaseUseCase getFindCardHolderMostPurchaseUseCase(CardHolderPort cardHolderPort) {
+        return new FindCardHolderMostPurchaseUseCaseImpl(cardHolderPort);
     }
 }

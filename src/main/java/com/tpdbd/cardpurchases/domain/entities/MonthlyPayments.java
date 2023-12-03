@@ -23,18 +23,22 @@ public class MonthlyPayments extends Purchase {
     @DBRef
     @Field(name = "card_id")
     private Card cardId;
-    private Set<Quota> quotasId = new HashSet<Quota>();
+    @DBRef
+    @Field(name = "payment")
+    private Payment payment;
+    private Set<Quota> quotas = new HashSet<Quota>();
     private Set<Discount> discountsId;
     private Set<Financing> financingsId;
 
     @Builder
-    public MonthlyPayments(String paymentVoucher, String store, String cuitStore, float amount, float finalAmount, float interest, int numberOfQuotas, Card cardId, Set<Quota> quotasId, Set<Discount> discountsId, Set<Financing> financingsId) {
+    public MonthlyPayments(String paymentVoucher, String store, String cuitStore, float amount, float finalAmount, float interest, int numberOfQuotas, Card cardId, Payment payment, Set<Quota> quotas, Set<Discount> discountsId, Set<Financing> financingsId) {
         super(paymentVoucher, store, cuitStore, amount, finalAmount);
         this.interest = interest;
         this.numberOfQuotas = numberOfQuotas;
         this.cardId = cardId;
-        this.quotasId = quotasId;
+        this.quotas = quotas;
         this.discountsId = discountsId;
         this.financingsId = financingsId;
+        this.payment = payment;
     }
 }
