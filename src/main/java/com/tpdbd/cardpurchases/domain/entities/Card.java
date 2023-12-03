@@ -40,9 +40,6 @@ public class Card {
     private Bank bankId;
 
     @OneToMany(fetch = FetchType.LAZY)
-    private Set<MonthlyPayments> monthlyPaymentsId = new HashSet<MonthlyPayments>();
-
-    @OneToMany(fetch = FetchType.LAZY)
-    private Set<CashPayment> cashPaymentsId = new HashSet<CashPayment>();
+    private Set<Purchase> purchasesId = new HashSet<Purchase>();
 
 }

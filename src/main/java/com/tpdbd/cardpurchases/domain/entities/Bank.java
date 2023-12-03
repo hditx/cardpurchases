@@ -33,8 +33,6 @@ public class Bank {
     @OneToMany(fetch = FetchType.LAZY)
     private Set<Card> cards = new HashSet<Card>();
     @OneToMany(fetch = FetchType.LAZY)
-    private Set<Discount> discounts = new HashSet<Discount>();
-    @OneToMany(fetch = FetchType.LAZY)
-    private Set<Financing> financings = new HashSet<Financing>();
+    private Set<Promotion> discounts = new HashSet<Promotion>();
 
 }
