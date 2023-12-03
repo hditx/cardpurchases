@@ -5,6 +5,7 @@ import com.tpdbd.cardpurchases.application.ports.DiscountPort;
 import com.tpdbd.cardpurchases.domain.entities.Discount;
 import com.tpdbd.cardpurchases.domain.usecases.CreateDiscountUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ public class CreateDiscountUseCaseImpl implements CreateDiscountUseCase {
     private final BankPort bankPort;
 
 
+    @Transactional
     @Override
     public void invoke(CreateDiscountCommand command) throws ParseException {
         var discount = parseToDiscount(command);

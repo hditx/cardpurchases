@@ -10,6 +10,7 @@ import com.tpdbd.cardpurchases.domain.entities.MonthlyPayments;
 import com.tpdbd.cardpurchases.domain.entities.Promotion;
 import com.tpdbd.cardpurchases.domain.usecases.CreateMonthlyPurchaseUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +24,7 @@ public class CreateMonthlyPurchaseUseCaseImpl implements CreateMonthlyPurchaseUs
     private final FinancingPort financingPort;
     private final CardPort cardPort;
 
+    @Transactional
     @Override
     public void invoke(CreatePurchaseCommand command) {
         MonthlyPayments monthlyPayments = parseCommandToMonthly(command);

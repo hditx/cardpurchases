@@ -5,6 +5,7 @@ import com.tpdbd.cardpurchases.application.ports.FinancingPort;
 import com.tpdbd.cardpurchases.domain.entities.Financing;
 import com.tpdbd.cardpurchases.domain.usecases.CreateFinancingUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,6 +15,7 @@ public class CreateFinancingUseCaseImpl implements CreateFinancingUseCase {
     private final FinancingPort financingPort;
     private final BankPort bankPort;
 
+    @Transactional
     @Override
     public void invoke(CreateFinancingCommand command) throws ParseException {
         var financing = parseToFinancing(command);

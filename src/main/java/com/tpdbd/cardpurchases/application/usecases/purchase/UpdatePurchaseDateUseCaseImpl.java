@@ -3,6 +3,7 @@ package com.tpdbd.cardpurchases.application.usecases.purchase;
 import com.tpdbd.cardpurchases.application.ports.PaymentPort;
 import com.tpdbd.cardpurchases.domain.usecases.UpdatePurchaseDateUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +14,8 @@ public class UpdatePurchaseDateUseCaseImpl implements UpdatePurchaseDateUseCase 
     private final PaymentPort paymentPort;
 
 
+    @Transactional
+    @Override
     public void invoke(UpdatePurchaseDateCommand command) throws ParseException {
         var purchase = paymentPort.findByCode(command.getCode());
         var date = parseToDate(command.getDate());

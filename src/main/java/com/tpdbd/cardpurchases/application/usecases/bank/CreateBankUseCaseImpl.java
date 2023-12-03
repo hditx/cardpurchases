@@ -4,6 +4,7 @@ import com.tpdbd.cardpurchases.application.ports.BankPort;
 import com.tpdbd.cardpurchases.domain.entities.Bank;
 import com.tpdbd.cardpurchases.domain.usecases.CreateBankUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @RequiredArgsConstructor
@@ -11,6 +12,8 @@ public class CreateBankUseCaseImpl implements CreateBankUseCase {
     private final BankPort bankPort;
 
 
+    @Transactional
+    @Override
     public void invoke(CreateBankCommand command) {
         var bank = parseToBank(command);
         bankPort.save(bank);
