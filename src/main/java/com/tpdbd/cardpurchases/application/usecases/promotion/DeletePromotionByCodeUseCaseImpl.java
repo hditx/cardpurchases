@@ -4,6 +4,7 @@ import com.tpdbd.cardpurchases.application.ports.DiscountPort;
 import com.tpdbd.cardpurchases.application.ports.FinancingPort;
 import com.tpdbd.cardpurchases.domain.usecases.DeletePromotionByCodeUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 public class DeletePromotionByCodeUseCaseImpl implements DeletePromotionByCodeUseCase {
@@ -11,6 +12,7 @@ public class DeletePromotionByCodeUseCaseImpl implements DeletePromotionByCodeUs
     private final DiscountPort discountPort;
     private final FinancingPort financingPort;
 
+    @Transactional
     @Override
     public void invoke(String code) {
         var discount = discountPort.findByCode(code);

@@ -8,6 +8,7 @@ import com.tpdbd.cardpurchases.domain.entities.Card;
 import com.tpdbd.cardpurchases.domain.entities.CardHolder;
 import com.tpdbd.cardpurchases.domain.usecases.CreateCardUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,6 +20,7 @@ public class CreateCardUseCaseImpl implements CreateCardUseCase {
     private final CardHolderPort cardHolderPort;
 
 
+    @Transactional
     @Override
     public void invoke(CreateCardCommand command) throws ParseException {
         var card = parseToCard(command);

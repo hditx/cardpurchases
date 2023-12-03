@@ -7,6 +7,7 @@ import com.tpdbd.cardpurchases.domain.entities.Payment;
 import com.tpdbd.cardpurchases.domain.entities.Quota;
 import com.tpdbd.cardpurchases.domain.usecases.CreatePaymentUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ public class CreatePaymentUseCaseImpl implements CreatePaymentUseCase {
     private final MonthlyPaymentPort monthlyPaymentPort;
     private final QuotaPort quotaPort;
 
+    @Transactional
     @Override
     public void invoke(CreatePaymentCommand command) throws ParseException {
         Payment payment = parseCommandToPayment(command);

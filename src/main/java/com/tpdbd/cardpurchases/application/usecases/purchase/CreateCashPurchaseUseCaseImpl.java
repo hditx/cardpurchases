@@ -9,6 +9,7 @@ import com.tpdbd.cardpurchases.domain.entities.Discount;
 import com.tpdbd.cardpurchases.domain.entities.Payment;
 import com.tpdbd.cardpurchases.domain.usecases.CreateCashPurchaseUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.List;
@@ -22,6 +23,7 @@ public class CreateCashPurchaseUseCaseImpl implements CreateCashPurchaseUseCase 
     private final DiscountPort discountPort;
     private final PaymentPort paymentPort;
 
+    @Transactional
     @Override
     public void invoke(CreatePurchaseCommand command) {
         Payment payment = parseToPayment(command);
