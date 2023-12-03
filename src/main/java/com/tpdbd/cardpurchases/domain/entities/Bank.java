@@ -28,13 +28,13 @@ public class Bank {
 
     @Column(name = "telephone", length = 20)
     private String telephone;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<CardHolder> cardHolders = new HashSet<CardHolder>();
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<Card> cards = new HashSet<Card>();
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<Discount> discounts = new HashSet<Discount>();
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<Financing> financings = new HashSet<Financing>();
 
 }

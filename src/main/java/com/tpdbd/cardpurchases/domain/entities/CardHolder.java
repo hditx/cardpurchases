@@ -36,7 +36,7 @@ public class CardHolder {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bank_id")
     private Bank bankId;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<Card> cards = new HashSet<Card>();
 
 }
